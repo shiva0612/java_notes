@@ -1,0 +1,5 @@
+f5 - goes line by line and if there is any break point in the middle , it does not matter bcz it however goes line by line and in between if there is a function also it goes line by line into the function
+
+f6 - goes line by line and if there is a function call in between it executes the entire function but does not go into each line of the function until unless you keep a break point in any line of the function
+
+f8 - goes to the next debug point 

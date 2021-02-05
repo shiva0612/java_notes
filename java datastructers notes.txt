@@ -1,0 +1,170 @@
+if you see static in class then no object is required to access it
+if not object of the class is required 
+// if you simply write then it belongs to that class and a object is required to access it 
+
+class Outer{
+	int x=2;
+	class Inner{
+	int y=2;
+	}
+}
+class Main{
+	public static void Main(String[] args){
+		Outer out = new Outer();
+		Outer.Inner in = out.new Inner(); // Here, we have used "out.new Inner()" not "Outer.new Inner()"
+										  // first we have to create the obj for the outer class an then use it to create the obj of the Inner class
+	}
+}
+//-----------------------------------------------------------------------------------------------------
+class Outer{
+	int x=2;
+	static class Inner{
+	int y=2;
+	}
+}
+class Main{
+	public static void Main(String[] args){
+		Outer.Inner in = new Outer.Inner(); // Here, we don't have to create the object of the outer class to 										create the object of the inner class
+	}
+}
+//-----------------------------------------------------------------------------------------------------
+
+String a = "shiva";
+
+a.length()
+a.substring(start_index,end_index);
+a.substring(0,a.length());
+----------------------------------------------------------
+strings printing java :
+
+String s = java.text.MessageFormat.format("I would like to have {0} KG of rice and {1} Litre of Milk. I only have ${2}, is this sufficient?",new String[]{"100","5","50"});
+
+String a = "{YY}-{MM}-{SEQNO}";
+a = a.replace("YY", "17").replace("MM", "06").replace("SEQNO", "0001");
+System.out.println(a);
+//Output:  {17}-{06}-{0001}
+
+System.out.printf("%S-%S-%S\n", "shiva", "asd", "wqe");
+----------------------------------------------------------
+char[] b;
+
+b = a.toCharArray();
+
+a = "1234";
+int b = Integer.parseInt(a);
+
+a=1234
+String b = a+"";
+
+Integer a = 123;
+String b = a.toString()
+
+// for printing arrays:
+
+int[] a = {1,2,3};
+System.out.println(Arrays.toString(a)); // else it will give the index of the array
+
+String[] obj = new String[] {"shiva","surya"};
+String[] obj = {"shiva","surya"}
+int[] obj = {1,2,3}
+int[] a = new int[2]
+int a[] = new int[2]
+
+-------------------------------------------------------------------------
+List<String> list = Arrays.asList("a","b","c");
+String result = String.join(",", list);
+
+// for string.split()
+https://www.geeksforgeeks.org/split-string-java-examples/
+
+-------------------------------------------------------------------------
+arr_name = {1,2,3}
+List<int> obj = arrays.aslist(arr_name)
+
+writethrough property (changes made in any of (arr_name/obj) will reflect in both )
+can't add and remove elements from list
+list<int>obj = new ArrayList<>(arrays.aslist(arr_name))
+
+now we can add/delete the list
+
+https://youtu.be/_ntIzftXKMM
+-------------------------------------------------------
+
+ArrayList<int> myNumbers = new ArrayList<int>(); // Invalid
+ArrayList<Integer> myNumbers = new ArrayList<Integer>(); // Valid (we have to use Wrapper class)
+
+
+ArrayList<String> car = new ArrayList<>() //arraylist methods are not synchronized (not thread safe), they are fast
+										  // when extra element beyond size is added size will be increased by 50%
+										  // this is a static array
+
+vector <Sting>car = new vector<>()        //vector methods are synchronizes (thread safe), so they are slow
+										  // when extra element beyond size is added size will be increased by 100%
+										  // dynamic or linked list kind of thing
+
+
+Arraylist :
+
+		car.add("shiva")
+		car.set(0,"sdasd")  
+		car.get(1)
+		car.remove(2)
+		car.clear()
+		car.size() 
+		in arraylist we cannot add items in the start or middle , only at the end we can add items (the set function is to edit the item at that location)             
+
+vectors :
+
+		above methods from arralist +
+
+		for vectors we also have v.capacity()
+		v.addelementat()
+
+linkedlist :
+
+		above methods from arralist +
+
+		addFirst() 
+		addLast()
+		removeFirst()
+		removeLast()
+		getFirst()
+		getLast()
+
+Hashmap :
+Hashset : we can only have unique values and also has additional function ".contains()"
+------------------------------------------------------------------------------
+collections obj = new Arraylist(); // as datatype is not mentioned in here(it takes all the datatypes "it takes everything as objects")
+
+
+// this is generics (here, we mention datatypes)
+collections<Integer> obj = new ArrayList<>(); // we can't add element based on index
+List<Integer> obj = new ArrayList<>();// we can add elements based on index and List allows duplicate values also
+Set<Integer> obj = new HashSet<>();// set does not allow duplicate values and when printed gives numbers in random order
+Set<Integer> obj = new TreeSet<>();// while adding numbers they get sorted 
+Map<Integer,String> obj = new HashMap<>(); // same like dictionary in python
+
+------------------------------------------------------------------------------
+Abstract:
+	 - can't create an object
+	 - can have both normal and abstract methods ( only have declaration )
+
+
+abstract class Animal {
+  public abstract void animalSound();
+  public void sleep() {
+    System.out.println("Zzz");
+  }
+}
+
+Interface:
+	- same as abstract but some more restrictions
+	- Interface methods are by default abstract and public (cannot have normal methods where defination is also given)
+	- Interface attributes are by default public, static and final
+	- An interface cannot contain a constructor (as it cannot be used to create objects so thats obvious)
+
+Final:
+	- cannot be derived 
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------

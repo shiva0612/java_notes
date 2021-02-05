@@ -1,0 +1,114 @@
+
+TEST SUITE :
+
+@RunWith(Suite.class)
+
+@Suite.SuiteClasses({ 
+   TestJunit1.class ,TestJunit2.class
+})
+
+-----------------------------------------------------------------------------------------------
+
+
+EASYMOCK :
+
+Calservice obj = EasyMock.createNiceMock(Calservice.class)
+
+EasyMock.Expect(obj.func(10,20)).andReturn(30)
+
+for void functions we should write expectLastcall.time()
+obj.fun_name()
+EasyMock.expectLastcall.times(1,3) // we have to write the function call before writing this statement w/o that it does not know which call should be expected
+
+
+EasyMock.replay(obj) // if we don't mention this the above mocked method will not be functioned as mocked object it gives "0"
+
+EasyMock.verify(obj) // verifies if the call is made for the mocked object or not
+
+for using annotations in easymock:
+
+@RunWith(EasyMockRunner.class)
+in class
+@mock
+@injectMocks class_name obj_name
+@Testsubjects class_name obj_name = new class_name()
+
+EasyMock.expect(calcService.add(10.0,20.0)).andThrow(new
+         RuntimeException("Add operation not implemented"));
+
+this does not fail the test it just throws error
+
+-----------------------------------------------------------------------------------------------
+stricteasymock:
+
+expect(obj.add()).andReturn(30)
+expect(obj.sub()).andReturn(10)
+
+assertEquals(10,obj.sub())
+assertEquals(30,obj.add())
+
+this throws error bcz, we have creted the behavior of add first and then sub using expect statement
+so, we have call assert for add first and then sub 
+if we use strictmock 
+
+
+niceeasymock :
+
+expect(obj.add()).andReturn(30)
+
+asserEquals(10,obj.sub())
+assertEquals(30,obj.add())
+
+here, even if we didn't define the behavior of the "sub"
+still we can use "assertEquals(30,obj.add())" 
+bcz, NiceMock defines a default behaviour for the methods that are not defined using expect statements
+
+
+
+-----------------------------------------------------------------------------------------------
+PARAMETERIZED :
+
+write this before declaring the class of test
+
+@RunWith(Parameterized.class)
+in the class we write:
+@parameterized.parameters
+
+-----------------------------------------------------------------------------------------------
+
+POWERMOCK :
+
+In powermock before the declaration of the class in test.java
+we have to write
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({ service_class_name.class })
+
+then in the @Test
+
+for static non_void method :
+
+PowerMock.mockStatic(EmployeeService.class);
+  EasyMock.expect(EmployeeService.getEmployeeFirstNames(employees)).andReturn(employeeNames);
+  PowerMock.replayAll();
+
+Object w_DynamicValueObj = null;
+		PowerMock.mockStaticPartial(EFormManagerAdapter.class, "getDataFromDynamicMethod");
+		EasyMock.expect(EFormManagerAdapter.getDataFromDynamicMethod(EasyMock.anyObject(DynamicContentKeyData.class).getClassName(),EasyMock.anyObject(DynamicContentKeyData.class).getMethodName(),EasyMock.anyObject(DynamicContentMethodParameters.class))).andReturn(w_DynamicValueObj);
+		PowerMock.replayAll(EFormManagerAdapter.class);
+
+
+		//368					
+		PowerMock.mockStaticPartial(EFormUtils.class, "setAuxParamInEtxdAttrib");
+		EFormUtils.setAuxParamInEtxdAttrib(EasyMock.anyObject(DynamicContentKeyData.class).getAuxParameters(),EasyMock.anyObject(DynamicContentMethodParameters.class));
+		PowerMock.expectLastCall();
+		PowerMock.replayAll(EFormUtils.class);
+
+
+
+for non-static methods : 
+
+CustomRulesConfigHelper w_customrulesconfigheper = PowerMock.createPartialMock(CustomRulesConfigHelper.class, "getCardAttributeList");
+		EasyMock.expect(w_customrulesconfigheper.getCardAttributeList(EasyMock.anyString(), EasyMock.anyString(),EasyMock.anyString(), EasyMock.anyObject(UserData.class))).andReturn(w_cardAttributelist);
+		PowerMock.replayAll(CustomRulesConfigHelper.class);
+		
