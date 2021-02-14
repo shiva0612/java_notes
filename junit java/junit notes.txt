@@ -85,7 +85,7 @@ we have to write
 @PrepareForTest({ service_class_name.class })
 
 then in the @Test
-
+-----------------------------------------------------------------------------------------------
 for static non_void method :
 
 PowerMock.mockStatic(EmployeeService.class);
@@ -96,14 +96,15 @@ Object w_DynamicValueObj = null;
 		PowerMock.mockStaticPartial(EFormManagerAdapter.class, "getDataFromDynamicMethod");
 		EasyMock.expect(EFormManagerAdapter.getDataFromDynamicMethod(EasyMock.anyObject(DynamicContentKeyData.class).getClassName(),EasyMock.anyObject(DynamicContentKeyData.class).getMethodName(),EasyMock.anyObject(DynamicContentMethodParameters.class))).andReturn(w_DynamicValueObj);
 		PowerMock.replayAll(EFormManagerAdapter.class);
-
+-----------------------------------------------------------------------------------------------
+for static void methods :
 
 		//368					
 		PowerMock.mockStaticPartial(EFormUtils.class, "setAuxParamInEtxdAttrib");
 		EFormUtils.setAuxParamInEtxdAttrib(EasyMock.anyObject(DynamicContentKeyData.class).getAuxParameters(),EasyMock.anyObject(DynamicContentMethodParameters.class));
 		PowerMock.expectLastCall();
 		PowerMock.replayAll(EFormUtils.class);
-
+-----------------------------------------------------------------------------------------------
 
 
 for non-static methods : 

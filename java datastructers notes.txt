@@ -50,15 +50,15 @@ char[] b;
 
 b = a.toCharArray();
 
-a = "1234";
+String a = "1234";
 int b = Integer.parseInt(a);
 
-a=1234
+int a=1234
 String b = a+"";
 
 Integer a = 123;
-String b = a.toString()
-
+String b = a.toString() // here a is the object of Integer class so it has few inbuilt functions unlike if it is simply int 							we have do 1234+""
+-------------------------------------------------------------------------
 // for printing arrays:
 
 int[] a = {1,2,3};
@@ -69,6 +69,11 @@ String[] obj = {"shiva","surya"}
 int[] obj = {1,2,3}
 int[] a = new int[2]
 int a[] = new int[2]
+
+a[1]=10; //since it is a normal arrya
+
+if a is like (ArrayList<Integer> a = new ArratList<>()) then we have to use a.set(1,10)
+
 
 -------------------------------------------------------------------------
 List<String> list = Arrays.asList("a","b","c");
@@ -159,7 +164,7 @@ abstract class Animal {
 
 Interface:
 	- same as abstract but some more restrictions
-	- Interface methods are by default abstract and public (cannot have normal methods where defination is also given)
+	- Interface methods are by default abstract and public (cannot have normal methods where definition is also given)
 	- Interface attributes are by default public, static and final
 	- An interface cannot contain a constructor (as it cannot be used to create objects so thats obvious)
 
