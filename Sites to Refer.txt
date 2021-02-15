@@ -1,0 +1,9 @@
+mostly refer 
+
+JavaTpoint for Oops concepts like
+1. runtime polymorphism
+2. threading 
+3. lambda funcitons
+4. anonymous class
+
+anything

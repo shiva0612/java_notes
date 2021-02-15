@@ -28,6 +28,12 @@ int a[] = new int[2]
 
 a[1]=10; //since it is a normal arrays
 
+ //we dont have default function to remove or delete element in java arrays
+// so we mostly use arraylist 
+//also to find the elements by value in arrays we use
+ArrayUtils.indexOf(a, "e");
+// but in arraylist we have a.indexOf('e')
+
 if a is like (ArrayList<Integer> a = new ArratList<>()) then we have to use a.set(1,10)
 
 ----------------------------------------------------------
